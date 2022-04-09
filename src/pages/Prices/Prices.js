@@ -1,33 +1,30 @@
 import { useParams, useLocation } from "react-router-dom";
 import {useState, useEffect} from 'react';
 
-export default function Prices(props) {
-    const [data, setData] = useState(null);
-    const apiKey = '0ad3a491ff510d0641e1dd8c1038e941';
+export default function Prices({data}) {
+    const [company, setCompany] = useState(null)
     const params = useParams();
     const symbol = params.symbol;
-    const location = useLocation();
-    const {company} = location.state;
+    // const location = useLocation();
+    // const {company} = location.state;
 
-    const url = `https://financialmodelingprep.com/api/v3/quote-short/${symbol}?apikey=${apiKey}`;
+    const getCompany = () => {
+        setCompany(data.filter(stock => stock.symbol === symbol));
+    }
 
-
-
-    const getData = async () => {
-        try{
-            const response = await fetch(url);
-            const apiData = await response.json();
-            setData(apiData);
-        } catch (err) {
-            console.error(err);
-        }
+    const getInfo = () => {
+        const rows = Object.entries(company[0]).map(([key,value], idx) => {
+            return (
+                <h2 className={key !== 'changesPercentage' ? '' : key < 0 ? 'neg' : 'pos'} key={idx}>{key}: {key === 'changesPercentage' ? `${Math.round(value*100)/100}%` : value}</h2>
+            )
+        })
+        return rows
     }
 
     const loaded = () => {
         return (
             <div>
-                <h2>Name: {company.name}</h2>
-                <h2>Price: {data[0].price}</h2>
+                {getInfo()}
             </div>
         )
     }
@@ -37,10 +34,10 @@ export default function Prices(props) {
     }
 
     useEffect(() => {
-        getData();
+        getCompany();
     },[])
 
-    return data ? loaded() : loading();
+    return data && company ? loaded() : loading();
 
 
 }

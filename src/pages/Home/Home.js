@@ -23,7 +23,10 @@ export default function Home(props) {
 
     const loaded = () => {
         return (
-            <Table data={activeData}/>
+            <div className='dashboard'>
+                <h1>Active Stocks</h1>
+                <Table data={activeData}/>
+            </div>
         )
     }
 

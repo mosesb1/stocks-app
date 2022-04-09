@@ -37,3 +37,9 @@ th, td{
     overflow: hidden;
     max-width:1px;
 }
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

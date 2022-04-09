@@ -24,7 +24,7 @@
 }
 
 table {
-    width: 100%;
+    width: 50%;
 }
 
 table, th, td, tr {
@@ -36,6 +36,7 @@ th, td{
     text-overflow: ellipsis;
     overflow: hidden;
     max-width:1px;
+    text-align: center;
 }
 
 .dashboard {

@@ -27,6 +27,13 @@ table {
     width: 100%;
 }
 
-table, th, td {
-    border: 1px solid;
+table, th, td, tr {
+    border: 1px solid black;
+}
+
+th, td{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width:1px;
 }

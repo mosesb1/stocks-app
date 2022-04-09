@@ -1,5 +1,9 @@
-export default function TableRow(props){
+export default function TableRow({symbol, name, change, price, percentChange}){
     return (
-        <h1>Row</h1>
+        <tr>
+            <td>{name} ({symbol})</td>
+            <td>{price}</td>
+            <td className={percentChange > 0 ? 'pos' : 'neg'}>{change} ({Math.round(percentChange*100)/100}%)</td>
+        </tr>
     )
 }

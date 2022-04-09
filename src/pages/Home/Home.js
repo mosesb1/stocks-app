@@ -1,4 +1,4 @@
-import companies from '../../data';
+import Table from '../../components/Table/Table';
 import {useState, useEffect} from 'react';
 
 export default function Home(props) {
@@ -23,7 +23,7 @@ export default function Home(props) {
 
     const loaded = () => {
         return (
-            <h1>Table here</h1>
+            <Table data={activeData}/>
         )
     }
 

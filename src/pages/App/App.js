@@ -8,7 +8,7 @@ import Prices from '../Prices/Prices';
 import About from '../About/About';
 
 export default function App() {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     return (
         <>
             <header>

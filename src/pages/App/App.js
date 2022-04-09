@@ -18,7 +18,7 @@ export default function App() {
                 <Routes>
                     <Route path='/' element={<Home />}/>
                     <Route path='/stocks' element={<Stocks companies={companies}/>}/>
-                    <Route path='/stocks/:symbol' element={<Prices/>}/>
+                    <Route path='/stocks/:symbol' element={<Prices companies={companies}/>}/>
                     <Route path='/about' element={<About />}/>
                 </Routes>
             </main>

@@ -1,25 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import {useState, useEffect} from 'react';
-import companies from "../../data";
 
-export default function Prices(props) {
+export default function Prices({companies}) {
     const [data, setData] = useState(null);
-    const [company, setCompany] = useState(null);
     const apiKey = '0ad3a491ff510d0641e1dd8c1038e941';
     const params = useParams();
     const symbol = params.symbol;
+    const location = useLocation();
+    const {company} = location.state;
 
     const url = `https://financialmodelingprep.com/api/v3/quote-short/${symbol}?apikey=${apiKey}`;
 
-    const getCompany = () => {
-        let index;
-        companies.forEach((comp, idx) => {
-            if(comp.symbol === symbol) {
-                index = idx;
-            }
-        })
-        setCompany(companies[index]);
-    }
+
 
     const getData = async () => {
         try{
@@ -46,10 +38,9 @@ export default function Prices(props) {
 
     useEffect(() => {
         getData();
-        getCompany();
     },[])
 
-    return data && company ? loaded() : loading();
+    return data ? loaded() : loading();
 
 
 }

@@ -5,10 +5,12 @@ import About from '../../pages/About/About';
 
 export default function Nav(props) {
     return (
-        <ul>
-            <li><Link to='/'>iStocks</Link></li>
-            <li><Link to='/stocks'>Stocks</Link></li>
-            <li><Link to='/about'>About</Link></li>
-        </ul>
+        <nav>
+            <ul className='nav'>
+                <li><Link to='/'>iStocks</Link></li>
+                <li><Link to='/stocks'>Stocks</Link></li>
+                <li><Link to='/about'>About</Link></li>
+            </ul>
+        </nav>
     )
 }

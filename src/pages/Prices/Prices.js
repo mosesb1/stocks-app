@@ -1,7 +1,7 @@
 import { useParams, useLocation } from "react-router-dom";
 import {useState, useEffect} from 'react';
 
-export default function Prices({companies}) {
+export default function Prices(props) {
     const [data, setData] = useState(null);
     const apiKey = '0ad3a491ff510d0641e1dd8c1038e941';
     const params = useParams();

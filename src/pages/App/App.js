@@ -5,7 +5,6 @@ import Home from '../Home/Home';
 import Stocks from '../Stocks/Stocks';
 import Prices from '../Prices/Prices';
 import About from '../About/About';
-import companies from '../../data';
 
 export default function App() {
     return (
@@ -16,8 +15,8 @@ export default function App() {
             <main className='App'>
                 <Routes>
                     <Route path='/' element={<Home />}/>
-                    <Route path='/stocks' element={<Stocks companies={companies}/>}/>
-                    <Route path='/stocks/:symbol' element={<Prices companies={companies}/>}/>
+                    <Route path='/stocks' element={<Stocks />}/>
+                    <Route path='/stocks/:symbol' element={<Prices />}/>
                     <Route path='/about' element={<About />}/>
                 </Routes>
             </main>
